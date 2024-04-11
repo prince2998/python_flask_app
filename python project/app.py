@@ -27,10 +27,6 @@ def create_database_and_table():
         """)
         mysql.connection.commit()
         cur.close()
-
-# Serve static files (HTML and CSS)
-#@app.route('/')
-def index():
     return render_template('index.html')
 
 # API endpoints for CRUD operations
@@ -63,9 +59,9 @@ def get_student(student_id):
     return render_template('student.html', student=data)
 
 # Add other CRUD endpoints (POST, PUT, DELETE) as needed
-@app.route('/update/<int:student_id>', methods=['PUT', 'POST'])
+@app.route('/update/<int:student_id>', methods=['PUT'])
 def update_student(student_id):
-    if request.method in ['POST','PUT']:
+    if request.method in ['PUT']:
         data = request.form
         name = data['name']
         age = data['age']
