@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Delete Student</h1>
+    <p>Are you sure you want to delete the following student?</p>
+    <p><strong>ID:</strong> {{ student[0] }}</p>
+    <p><strong>Name:</strong> {{ student[1] }}</p>
+    <p><strong>Age:</strong> {{ student[2] }}</p>
+    <form action="/students/{{ student[0] }}" method="DELETE">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/students">Cancel</a>
+</body>
+</html>
+
